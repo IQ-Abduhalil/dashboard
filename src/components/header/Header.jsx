@@ -1,10 +1,18 @@
+import { useContext } from "react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Menu from "../../assets/icons/menu-bar.png";
 import Person from "../../assets/icons/personal.png";
+import { AuthContext } from "../../context/TokenContext";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+
+  const { token, setToken } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    setToken(localStorage.removeItem("myToken"));
+  };
 
   const handleOpenBtn = () => {
     setOpen(true);
@@ -16,7 +24,7 @@ export function Header() {
     <header>
       <div className="container mx-auto px-8 py-4">
         <div className="flex justify-between items-center">
-          <button onClick={handleOpenBtn} className="cursor-pointer">
+          {/* <button onClick={handleOpenBtn} className="cursor-pointer">
             <img src={Menu} alt="menu" width="30px" height="30px" />
           </button>
           <ul
@@ -43,9 +51,13 @@ export function Header() {
             <li className="    font-medium text-lg">
               <NavLink to="/cars"> Cars</NavLink>
             </li>
-          </ul>
-          <button className="flex gap-4 cursor-pointer border-2 border-cyan-500 items-center px-3 py-1 rounded-lg text-base font-semibold ">
-            <img width="30px" height="30px" src={Person} alt="admin" /> Admin
+          </ul> */}
+          <Link to="/">Home</Link>
+          <button
+            onClick={handleLogOut}
+            className="flex gap-4 cursor-pointer border-2 border-cyan-500 items-center px-3 py-1 rounded-lg text-base font-semibold "
+          >
+            <img width="30px" height="30px" src={Person} alt="admin" /> Log Out
           </button>
         </div>
       </div>

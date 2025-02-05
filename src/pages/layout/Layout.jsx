@@ -5,11 +5,11 @@ import { Sidebar } from "../../components/sidebar/Sidebar";
 
 function Layout() {
   return (
-    <div className="flex container mx-auto ">
+    <div className="flex   ">
       <Sidebar />
       <div className="layout__right    size-full right-0">
         <Header />
-        <div className="  min-h-full container mx-auto px-8 py-4">
+        <div className="  min-h-full   px-8 py-4">
           <Outlet />
         </div>
       </div>
