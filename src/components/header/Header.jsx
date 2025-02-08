@@ -55,9 +55,9 @@ export function Header() {
           <Link to="/">Home</Link>
           <button
             onClick={handleLogOut}
-            className="flex gap-4 cursor-pointer border-2 border-cyan-500 items-center px-3 py-1 rounded-lg text-base font-semibold "
+            className="flex gap-3 cursor-pointer border-2 border-cyan-500 items-center px-2 py-1 rounded-lg text-xs md:text-base font-semibold "
           >
-            <img width="30px" height="30px" src={Person} alt="admin" /> Log Out
+            <img width="20px" height="20px" src={Person} alt="admin" /> Log Out
           </button>
         </div>
       </div>

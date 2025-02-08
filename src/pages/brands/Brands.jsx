@@ -143,8 +143,8 @@ export function Brands() {
             <table className="mb-5 mt-5 w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <tbody>
                 <tr>
-                  <td className="px-6 py-4">{brand?.title}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 max-w-[80px]">{brand?.title}</td>
+                  <td className="px-6 py-4 max-w-[80px]">
                     <img
                       width="100px"
                       height="100px"
@@ -152,7 +152,7 @@ export function Brands() {
                       alt="image"
                     />
                   </td>
-                  <td className="px-2">
+                  <td className="px-2 text-center">
                     <button
                       onClick={() => editBrands(brand)}
                       className="font-medium bg-gray-200 rounded-lg px-2 py-1 text-blue-600 dark:text-blue-500 hover:bg-gray-100 cursor-pointer"
@@ -160,7 +160,7 @@ export function Brands() {
                       Edit
                     </button>
                   </td>
-                  <td className="px-2 ">
+                  <td className="px-2 text-center ">
                     <button
                       onClick={() => deleteBrand(brand.id)}
                       className="font-medium  bg-gray-200 rounded-lg px-2 py-1 text-blue-600 dark:text-blue-500 hover:bg-gray-100 cursor-pointer"

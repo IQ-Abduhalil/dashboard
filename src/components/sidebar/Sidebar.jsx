@@ -10,12 +10,12 @@ export function Sidebar() {
   return (
     <div className="bg-blue-900 min-h-screen">
       <div className="px-1 py-4 ">
-        <p className="text-center text-white font-bold text-2xl">
+        <p className="text-center text-white font-bold text-lg md:text-2xl">
           AutozoomAdmin
         </p>
-        <nav className="w-[300px]  mt-6 ">
+        <nav className="w-[200px] md:w-[300px]  mt-6 ">
           <ul className="flex flex-col gap-3 ">
-            <li className="  text-white font-medium text-lg">
+            <li className="  text-white font-medium text-base md:text-lg">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -28,7 +28,7 @@ export function Sidebar() {
                 Categories
               </NavLink>
             </li>
-            <li className="  text-white font-medium text-lg">
+            <li className="  text-white font-medium text-base md:text-lg">
               <NavLink
                 to="/brands"
                 className={({ isActive }) =>
@@ -41,7 +41,7 @@ export function Sidebar() {
                 Brands
               </NavLink>
             </li>
-            <li className="  text-white font-medium text-lg">
+            <li className="  text-white font-medium text-base md:text-lg">
               <NavLink
                 to="/models"
                 className={({ isActive }) =>
@@ -54,7 +54,7 @@ export function Sidebar() {
                 Models
               </NavLink>
             </li>
-            <li className="  text-white font-medium text-lg">
+            <li className="  text-white font-medium text-base md:text-lg">
               <NavLink
                 to="/location"
                 className={({ isActive }) =>
@@ -67,7 +67,7 @@ export function Sidebar() {
                 Location
               </NavLink>
             </li>
-            <li className="  text-white font-medium text-lg">
+            <li className="  text-white font-medium text-base md:text-lg">
               <NavLink
                 to="/cities"
                 className={({ isActive }) =>
@@ -79,7 +79,7 @@ export function Sidebar() {
                 <img width="20px" height="20px" src={City} alt="city" /> Cities
               </NavLink>
             </li>
-            <li className="  text-white font-medium text-lg">
+            <li className="  text-white font-medium text-base md:text-lg">
               <NavLink
                 to="/cars"
                 className={({ isActive }) =>
