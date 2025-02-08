@@ -145,9 +145,9 @@ export function Location() {
             <table className="mb-5 mt-5 w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <tbody>
                 <tr>
-                  <td className="px-6 py-4">{location?.name}</td>
+                  <td className="px-6 py-4 max-w-[70px]">{location?.name}</td>
 
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 max-w-[70px]">
                     <img
                       width="100px"
                       height="100px"
@@ -155,8 +155,8 @@ export function Location() {
                       alt="image"
                     />
                   </td>
-                  <td className="px-6 py-4">{location?.text}</td>
-                  <td className="px-2">
+                  <td className="px-6 py-4 max-w-[70px]">{location?.text}</td>
+                  <td className="px-2 text-center">
                     <button
                       onClick={() => editLocation(location)}
                       className="font-medium bg-gray-200 rounded-lg px-2 py-1 text-blue-600 dark:text-blue-500 hover:bg-gray-100 cursor-pointer"
@@ -164,7 +164,7 @@ export function Location() {
                       Edit
                     </button>
                   </td>
-                  <td className="px-2 ">
+                  <td className="px-2 text-center ">
                     <button
                       onClick={() => deleteLocation(location.id)}
                       className="font-medium  bg-gray-200 rounded-lg px-2 py-1 text-blue-600 dark:text-blue-500 hover:bg-gray-100 cursor-pointer"

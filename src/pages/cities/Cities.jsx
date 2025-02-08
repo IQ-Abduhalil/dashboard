@@ -149,9 +149,9 @@ export function Cities() {
             <table className="mb-5 mt-5 w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <tbody>
                 <tr>
-                  <td className="px-6 py-4">{city?.name}</td>
+                  <td className="px-6 py-4 max-w-[80px]">{city?.name}</td>
 
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 max-w-[80px]">
                     <img
                       width="100px"
                       height="100px"
@@ -159,8 +159,8 @@ export function Cities() {
                       alt="image"
                     />
                   </td>
-                  <td className="px-6 py-4">{city?.text}</td>
-                  <td className="px-2">
+                  <td className="px-6 py-4 max-w-[80px]">{city?.text}</td>
+                  <td className="px-2 text-center   ">
                     <button
                       onClick={() => editCity(city)}
                       className="font-medium bg-gray-200 rounded-lg px-2 py-1 text-blue-600 dark:text-blue-500 hover:bg-gray-100 cursor-pointer"
@@ -168,7 +168,7 @@ export function Cities() {
                       Edit
                     </button>
                   </td>
-                  <td className="px-2 ">
+                  <td className="px-2 text-center    ">
                     <button
                       onClick={() => deleteCity(city.id)}
                       className="font-medium  bg-gray-200 rounded-lg px-2 py-1 text-blue-600 dark:text-blue-500 hover:bg-gray-100 cursor-pointer"

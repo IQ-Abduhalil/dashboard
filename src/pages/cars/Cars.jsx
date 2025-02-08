@@ -37,6 +37,7 @@ export function Cars() {
   });
 
   const [openModal, setOpenModal] = useState(false);
+  const [selectedCar, setSelectedCar] = useState();
   const token = localStorage.getItem("myToken");
   const [brandId, setBrandId] = useState(null);
   const [modelId, setModelId] = useState(null);
@@ -72,9 +73,10 @@ export function Cars() {
   };
   const handleCloseModal = () => {
     setOpenModal(false);
-    // setName("");
-    // setBrandId("");
-    // setSelectedModel("");
+    setColor("");
+    setYear("");
+    setBrandId("");
+    setSelectedCar("");
   };
 
   // get brands function
@@ -245,12 +247,12 @@ export function Cars() {
     formdata.append("cover", cover);
 
     axios({
-      method: "POST",
+      method: selectedCar ? "PUT" : "POST",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "multipart/form-data",
       },
-      url: `${baseUrl}/cars`,
+      url: `${baseUrl}/cars/${selectedCar ? selectedCar?.id : ""}`,
       data: formdata,
     })
       .then((res) => {
@@ -260,6 +262,29 @@ export function Cars() {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  // edit cars
+
+  const editCars = (car) => {
+    setOpenModal(true);
+    setSelectedCar(car);
+    setColor(car?.color);
+    setYear(car?.year);
+    setBrandId(car?.id);
+    setMaxspeed(car?.max_speed);
+    setMaxpeople(car?.max_people);
+    setTransmission(car?.transmission);
+    setMotor(car?.motor);
+    setDrive(car?.drive_side);
+    setPetrol(car?.petrol);
+    setLimit(car?.limitperday);
+    setDeposit(car?.deposit);
+    setPremium(car?.premium_protection);
+    setPriceaed(car?.price_in_aed);
+    setPriceusd(car?.price_in_usd);
+    setPriceaedsale(car?.price_in_aed_sale);
+    setPriceusdsale(car?.price_in_usd_sale);
   };
 
   // delete cars function
@@ -274,7 +299,6 @@ export function Cars() {
     })
       .then((res) => {
         getCars();
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -323,13 +347,15 @@ export function Cars() {
                   <td className="px-6 py-4">{car?.year}</td>
                   <td className="px-6 py-4">
                     <img
-                      src={`${baseUrl}/uploads/images/${car?.image_src}`}
+                      width="100px"
+                      height="100px"
+                      src={`${baseUrl}/uploads/images/${car?.brand?.image_src}`}
                       alt="image"
                     />
                   </td>
                   <td className="px-6 py-4">
                     <button
-                      // onClick={() => editModel(car)}
+                      onClick={() => editCars(car)}
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       Edit
@@ -355,7 +381,7 @@ export function Cars() {
                   <div className="relative p-2  bg-white rounded-lg shadow-sm dark:bg-gray-700">
                     <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
                       <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                        {/* {selectedCar ? "Edit model" : "Add model"} */}
+                        {selectedCar ? "Edit model" : "Add model"}
                       </h3>
                       <button
                         onClick={handleCloseModal}
@@ -517,7 +543,7 @@ export function Cars() {
                           <input
                             value={limitperday}
                             className="border rounded-md px-4  py-3 w-[150px]"
-                            type="text"
+                            type="number"
                             required
                             placeholder="limit"
                             onChange={(e) => setLimit(e?.target?.value)}
@@ -530,7 +556,7 @@ export function Cars() {
                           <input
                             value={deposit}
                             className="border rounded-md px-4  py-3 w-[150px]"
-                            type="text"
+                            type="number"
                             required
                             placeholder="depost"
                             onChange={(e) => setDeposit(e?.target?.value)}
@@ -543,7 +569,7 @@ export function Cars() {
                           <input
                             value={premium}
                             className="border rounded-md px-4  py-3 w-[150px]"
-                            type="text"
+                            type="number"
                             required
                             placeholder="premium"
                             onChange={(e) => setPremium(e?.target?.value)}

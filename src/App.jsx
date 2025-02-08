@@ -13,7 +13,6 @@ import { AuthContext } from "./context/TokenContext";
 
 export default function App() {
   const { token } = useContext(AuthContext);
-  console.log(token);
   return (
     <Routes>
       {!token ? (

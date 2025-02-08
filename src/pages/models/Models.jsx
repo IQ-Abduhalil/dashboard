@@ -173,9 +173,9 @@ export function Models() {
             <table className="mb-5 w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <tbody>
                 <tr>
-                  <td className="px-6 py-4">{model?.name}</td>
-                  <td className="px-6 py-4">{model?.brand_id}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 max-w-[90px]">{model?.name}</td>
+                  <td className="px-6 py-4 max-w-[90px]">{model?.brand_id}</td>
+                  <td className="px-6 py-4 text-center">
                     <button
                       onClick={() => editModel(model)}
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
@@ -183,7 +183,7 @@ export function Models() {
                       Edit
                     </button>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 text-center">
                     <button
                       onClick={() => deleteModel(model.id)}
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
@@ -229,7 +229,7 @@ export function Models() {
                         value={brandId}
                         onChange={(e) => setBrandId(e?.target?.value)}
                         id="countries"
-                        className="bg-gray-50 max-w-[400px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-gray-50 max-w-[40 0px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       >
                         <option>choose a brand</option>
                         {brands?.data?.map((brand) => (
